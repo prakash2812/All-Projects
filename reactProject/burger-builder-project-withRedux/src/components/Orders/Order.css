@@ -1,0 +1,25 @@
+.Order{
+    
+    width: 80%;
+    border:1px solid #eee;
+    box-sizing: border-box;
+    box-shadow: 0 2px 3 px #ccc;
+    padding: 10px;
+    margin: 10px auto;
+}
+
+.Order span{
+    display: inline-block;
+    border: 1px solid black;
+    padding: 3px;
+    margin :2px
+}
+
+@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+  .Modal {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.5);  
+  }
+  
+}

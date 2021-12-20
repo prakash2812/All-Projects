@@ -1,0 +1,37 @@
+.profile {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  margin: 10px auto;
+  border: 1px solid #eee;
+  box-shadow: 0 2px 3px #ccc;
+}
+
+.profile label {
+  padding: 20px;
+  display: inline;
+  font-weight: bold;
+}
+
+.profile input {
+  margin: 10px;
+  border: none;
+  right: 20px;
+  border-bottom: 2px solid black;
+  display: inline;
+}
+
+.profile button {
+  background-color: ;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 20px;
+  float: right;
+  margin-right: 20px;
+  margin-bottom: 30px;
+}
+
+.profile button:hover {
+  background-color: rgb(14, 13, 13);
+  color: whitesmoke;
+}

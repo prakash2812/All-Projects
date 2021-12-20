@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Online form</title>
+    <link rel='stylesheet' type='text/css' media='screen' href='formstyle.css'>
+    
+</head>
+
+<body>
+    <h2> Fill the below form to oder now</h2>
+
+    <form id="theform" action="message.html" method="POST" onsubmit="return validationForm()">
+        <p>
+        <div id="row">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="" ></br></br>
+        </div>
+
+        <div id=row>
+            <label for="address">Address:</label>
+            <input type="text" id="address" name=""></br></br>
+        </div>
+
+        <div id="row">
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name=""></br></br>
+        </div>
+
+        <div id="row">
+            <label for="email">Email:</label>
+            <input type="email" id="email"></br></br>
+        </div>
+
+        <input type="submit" value="submit"></br></br>
+        <!-- <button>sumbit</button> -->
+
+        
+        </p>
+    </form>
+    
+    <script src="jquery-3.5.1.js"></script>
+    <script src="form.js"></script>
+</body>
+
+</html>

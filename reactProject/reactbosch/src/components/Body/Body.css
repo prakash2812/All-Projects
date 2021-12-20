@@ -1,0 +1,29 @@
+.Body {
+  position: sticky;
+  margin: 10px;
+  padding: 30px;
+  left: 100px;
+  width: 50%;
+  border: 3px solid black;
+}
+.Body ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.Body li {
+  display: inline-block;
+  margin: 20px;
+}
+
+.Body a {
+  text-decoration: none;
+  color: black;
+}
+
+.Body a:hover,
+.Body a:active,
+.Body a.active {
+  color: #fa923f;
+}

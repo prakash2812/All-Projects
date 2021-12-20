@@ -1,0 +1,26 @@
+nav.sidebar {
+  display: flex;
+  position: fixed;
+  width: 100px;
+  height: 100%;
+  padding: 0;
+  background: rgb(73, 79, 82);
+}
+
+.sidebar ul li {
+  padding: 10px;
+  list-style: none;
+  border-bottom: 1px solid rgb(73, 79, 82);
+}
+.sidebar ul li a {
+  color: white;
+  display: block;
+  height: 50px;
+}
+
+.sidebar ul li a .fas {
+  width: 20px;
+}
+.sidebar ul li a .fas:hover {
+  color: silver;
+}

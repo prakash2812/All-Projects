@@ -1,0 +1,50 @@
+.row{
+    background-color: lavender;
+}
+.col11{
+    margin: 3px;
+    min-height: 300px;
+    text-align: center;
+    background-color:silver;
+}
+.col12{
+    margin: 3px;
+    min-height: 300px;
+    text-align: center;
+    background-color:green;
+}
+.col13{
+    margin: 3px;
+    min-height: 300px;
+    text-align: center;
+    background-color:blue;
+}
+.col14{
+    margin: 3px;
+    min-height: 300px;
+    text-align: center;
+    background-color:red;
+}
+.col15{
+    margin: 3px;
+    min-height: 300px;
+    text-align: center;
+    background-color:darkgreen;
+}
+.col16{
+    margin: 3px;
+    min-height: 300px;
+    text-align: center;
+    background-color:orange;
+}
+.col17{
+    margin: 3px;
+    min-height: 300px;
+    text-align: center;
+    background-color:darksalmon;
+}
+.colinside{
+    max-height: 100px;
+    text-align: center;
+    background-color:orange;
+}

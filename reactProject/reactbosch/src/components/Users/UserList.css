@@ -1,0 +1,33 @@
+.table {
+  text-align: center;
+  width: 100%;
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  border: 3px solid black;
+}
+
+/* .table,
+th,
+td {
+  border: 3px solid black;
+}
+th {
+    color: black;
+  border-bottom: 3px solid black;
+} */
+th,
+td {
+  border: 1px solid black;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+tr:hover {
+  background-color: grey;
+  color: black;
+  cursor: pointer;
+}

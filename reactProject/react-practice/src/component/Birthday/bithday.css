@@ -1,0 +1,87 @@
+/* Created by Ferhat Sevim */
+
+body{
+
+font-size:55px;
+text-align: center;
+color:red;
+
+font-family: 'Handlee', cursive;
+    background:radial-gradient(circle,yellow,white,pink);
+     background-size:400px 500px;
+}
+.cube{
+    perspective:500px;
+    perspective-origin:50% 300px;
+}
+.cube-face{
+    margin:100px;
+    top:10px;
+    right:55px;
+    width:100px;
+    height:100px;
+    position:relative;
+    transform-style:preserve-3d;
+    animation:up 5s  infinite linear;
+    
+    transition:width 10s linear;
+    opacity:1;
+   
+}
+div:hover{
+    width:100px;
+}
+.cube-face div{
+    width:100px;
+    height:100px;
+    position:relative;
+    
+
+}
+.cube-face-front{
+
+    transform:translateX(25px);
+    
+}
+
+.baloon{
+margin:-50px;
+    top:10px;
+    right:70px;
+    width:80px;
+    height:80px;
+/* img:{float:top }; */
+position:absolute;
+    transform-style:preserve-3d;
+    animation:down 5s infinite  linear;
+    transition:width 10s linear;
+     opacity:0.7;
+}
+@keyframes up{
+    from {
+    
+    transform:translate(0px,200px);
+    -webkit-transform:translate(0px,-100px);
+    
+    }
+    to {
+    
+    transform:translate(0px, 0px);
+    -webkit-transform:translate(0px, 20px);
+    
+    }
+}
+@keyframes down{
+    from {
+    
+    transform:translate(200px,200px);
+    -webkit-transform:translate(0px,100px);
+    
+    }
+    to {
+    
+    transform:translate(0px, 0px);
+    -webkit-transform:translate(0px,-100px);
+    
+    }
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    
+    <div id="left">
+        <h2>THe left content</h2>
+        <p class="para">Page content</p>
+    </div>
+
+    <div id="center">
+        <h2>THe center content</h2>
+        <p>Page content</p>
+        <h3></h3>
+    </div>
+
+    <div id="right">
+        <h2>THe right content</h2>
+        <p>Page <b>serious</b>content</p>
+        <img src="cloud.png" alt="">
+    </div>
+
+    <ul>
+        <li>SOmething1</li>
+        <li></li>
+    </ul>
+
+    <div id="test">
+        <button>Hit button to change something</button>
+    </div>
+
+    <script src="jquery-3.5.1.js"></script>
+    <script src="jquery-practice.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("button1").click(function () {
+                // hide method
+                $("#right").hide();
+            })
+        })
+    </script>
+</body>
+
+</html>
