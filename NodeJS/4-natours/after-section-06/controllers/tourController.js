@@ -37,7 +37,7 @@ exports.getAllTours = (req, res) => {
       tours
     }
   });
-};
+}; 
 
 exports.getTour = (req, res) => {
   console.log(req.params);

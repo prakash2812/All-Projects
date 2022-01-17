@@ -1,6 +1,5 @@
-const mongoose = require('mongoose');
-const slugify = require('slugify');
-// const validator = require('validator');
+const mongoose = require('mongoose')
+const slugify = require('slugify')
 
 const tourSchema = new mongoose.Schema(
   {
@@ -49,7 +48,8 @@ const tourSchema = new mongoose.Schema(
       validate: {
         validator: function(val) {
           // this only points to current doc on NEW document creation
-          return val < this.price;
+          //this will not work for update query
+          return val < this.price
         },
         message: 'Discount price ({VALUE}) should be below regular price'
       }
@@ -68,65 +68,72 @@ const tourSchema = new mongoose.Schema(
       required: [true, 'A tour must have a cover image']
     },
     images: [String],
-    createdAt: {
-      type: Date,
-      default: Date.now(),
-      // select: false
-    },
     startDates: [Date],
     secretTour: {
       type: Boolean,
       default: false
+    },
+    createdAt: {
+      type: Date,
+      default: Date.now(),
+      select: false
     }
   },
   {
     toJSON: { virtuals: true },
     toObject: { virtuals: true }
   }
-);
-
+)
+/* Virtuals don't add in db its just display the result for every get request */
 tourSchema.virtual('durationWeeks').get(function() {
-  return this.duration / 7;
-});
+  return this.duration / 7
+})
 
-// DOCUMENT MIDDLEWARE: runs before .save() and .create()
+/* four types of middle ware in mongosse 
+ Document,query,aggregate and model */
+
+/* Document middle ware */
+// run before save or create even
 tourSchema.pre('save', function(next) {
-  this.slug = slugify(this.name, { lower: true });
-  next();
-});
+  // slugify used to pass strings to the url
+  this.slug = slugify(this.name, { lower: true })
+  next()
+})
 
-// tourSchema.pre('save', function(next) {
-//   console.log('Will save document...');
-//   next();
-// });
+tourSchema.post('save', function(doc, next) {
+  // it will have the doc data after pre events done
+  console.log('document data', doc)
+  next()
+})
 
-// tourSchema.post('save', function(doc, next) {
-//   console.log(doc);
-//   next();
-// });
-
-// QUERY MIDDLEWARE
-// tourSchema.pre('find', function(next) {
+/* Query middle ware  */
 tourSchema.pre(/^find/, function(next) {
-  this.find({ secretTour: { $ne: true } });
+  this.find({ secretTour: { $ne: true } })
 
-  this.start = Date.now();
-  next();
-});
+  this.start = Date.now()
+  next()
+})
 
-tourSchema.post(/^find/, function(docs, next) {
-  console.log(`Query took ${Date.now() - this.start} milliseconds!`);
-  next();
-});
+tourSchema.post(/^find/, function(doc, next) {
+  console.log(
+    `query execution take time ${Date.now() - this.start} milliseconds`
+  )
+  next()
+})
 
-// AGGREGATION MIDDLEWARE
+/* Aggregate middleware */
 tourSchema.pre('aggregate', function(next) {
-  this.pipeline().unshift({ $match: { secretTour: { $ne: true } } });
+  console.log('aggregataion reference', this)
+  console.log('aggregataion reference', this._pipeline)
+  // console.log('aggregataion pipeline reference', this._pipeline())
+  this._pipeline.unshift({ $match: { secretTour: { $ne: true } } })
+  next()
+})
+tourSchema.post('aggregate', function(doc, next) {
+  console.log('aggregataion reference', doc)
+  next()
+})
 
-  console.log(this.pipeline());
-  next();
-});
+const Tour = mongoose.model('Tour', tourSchema)
 
-const Tour = mongoose.model('Tour', tourSchema);
-
-module.exports = Tour;
+module.exports = Tour
