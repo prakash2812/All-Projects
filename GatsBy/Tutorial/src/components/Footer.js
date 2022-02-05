@@ -2,8 +2,12 @@ import React from "react"
 
 const Footer = () => {
   return (
-    <footer>
-      <h2>Footer form</h2>
+    <footer className="page-footer">
+      <p>
+        &copy; {new Date().getFullYear()}
+        <span> SimplyRecipes</span>. Built with
+        <a href="https://www.gatsby.com/"> Gatsby</a>
+      </p>
     </footer>
   )
 }
