@@ -3,6 +3,7 @@ const http = require('http')
 const path = require('path')
 const url = require('url')
 const slugify = require('slugify')
+// our own module
 const cardHtmlPage = require('./modules/cardHtmlPage')
 
 // const readFile = fs.readFileSync("./txt/input.txt", "utf-8");

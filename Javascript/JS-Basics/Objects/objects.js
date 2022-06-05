@@ -1,8 +1,8 @@
 // Objects are entities which have properties and methods or functions.
 // objects/arrays are reference data types means copied the reference(memory allocation) not values
 // objects have two properties i.e., data properties , accesor properties
-let obj = {}
-let obj = new Object()//{}
+let obj = {};
+let obj = new Object(); //{}
 // --------------------------------------------------------------------------------------
 let user = {
     name: 'arjun',
@@ -10,7 +10,7 @@ let user = {
     users: ['Hr', 'Developer'],
     roles: {
         role: 'developer',
-        salary: 123
+        salary: 123,
     },
     draw: function () {
         // old format
@@ -19,30 +19,28 @@ let user = {
     draw() {
         //new format
         console.log(user.age);
-    }
-}
+    },
+};
 
 let anotherUser = user;
 // true we just copied the reference memory.. anotherUser-->{}<--user
-console.log(user === anotherUser);//true
-
-
+console.log(user === anotherUser); //true
 
 // this ceates a new reference to new object values
-let data = Object.assign({}, user)
+let data = Object.assign({}, user);
 
 //false cause its a new seperate obj reference, means cloned .. data-->{} and user-->{}
-console.log(data === user);//false
+console.log(data === user); //false
 
 // true because deep cloning, we have objects and arrays , they will have same object reference
-console.log(user.roles === data.roles);//true
+console.log(user.roles === data.roles); //true
 
 // let data = _.cloneDeep(user)
-console.log(user.roles === data.roles);// false due to deep cloning not happened
+console.log(user.roles === data.roles); // false due to deep cloning not happened
 // --------------------------------------------------------------------------------------------
 
-const a = {}
-const b = {}
+const a = {};
+const b = {};
 
 //false even it have same values but reference data types works on reference
 // it creates two different reference a-->{} b-->{}
@@ -50,18 +48,18 @@ console.log(a === b);
 // ---------------------------------------------------------------------------------------
 let obj = {
     name: 'arjun',
-    values: [1, 2, 3,],
-    sum: { id: 123, age: 23 }
-}
+    values: [1, 2, 3],
+    sum: { id: 123, age: 23 },
+};
 
-let obj1 = { ...obj }
-console.log(obj === obj1); //false 
+let obj1 = { ...obj };
+console.log(obj === obj1); //false
 
-obj.name = 'prakash'
-obj.values.push(4)
-obj.sum.id = 128
-console.log(obj1)// { name: 'arjun', values: [ 1, 2, 3, 4 ], sum: { id: 128, age: 23 } }
-console.log(obj)//--->{ name: 'prakash', values: [1, 2, 3, 4], sum: { id: 128, age: 23 } }
+obj.name = 'prakash';
+obj.values.push(4);
+obj.sum.id = 128;
+console.log(obj1); // { name: 'arjun', values: [ 1, 2, 3, 4 ], sum: { id: 128, age: 23 } }
+console.log(obj); //--->{ name: 'prakash', values: [1, 2, 3, 4], sum: { id: 128, age: 23 } }
 console.log(obj.values === obj1.values); // true cause deep cloning is not happened
 console.log(obj.sum === obj1.sum); // true cause deep cloning is not happened
 // ------------------------------------- Object methods ----------------------------------------
@@ -69,61 +67,56 @@ console.log(obj.sum === obj1.sum); // true cause deep cloning is not happened
 const veg = {
     apple: 2,
     grapes: 4,
-    orange: 5
+    orange: 5,
 };
 
-// convert object keys as array data 
-const objKeysToArray = Object.keys(veg)
-console.log(objKeysToArray);  // [apple,grapes,orange]
+// convert object keys as array data
+const objKeysToArray = Object.keys(veg);
+console.log(objKeysToArray); // [apple,grapes,orange]
 
 // convet object values To array data
-const objValuesToArray = Object.values(veg)
-console.log(objValuesToArray);// [2,4,5]
+const objValuesToArray = Object.values(veg);
+console.log(objValuesToArray); // [2,4,5]
 
 // convert object key and values To array data
-const objKeyValuesToArray = Object.entries(veg)
+const objKeyValuesToArray = Object.entries(veg);
 console.log(objKeyValuesToArray); // [[apple,2],[grapes,4],[orange,5]]
 
 // convert Array in in to Object
-const fromEntries = Object.fromEntries(objKeyValuesToArray.map(([key, value]) => [key, value * 2]))
+const fromEntries = Object.fromEntries(
+    objKeyValuesToArray.map(([key, value]) => [key, value * 2])
+);
 console.log(fromEntries); // {apple:4,grapes:8,orange:10}
 
 // -----------------------------------------------------------------------------------------------
 let user = {
     name: 'arjun',
-    age: 23
-}
+    age: 23,
+};
 
-console.log(Reflect.ownKeys(user)) // ['name','age'] // just like 
+console.log(Reflect.ownKeys(user)); // ['name','age'] // just like
 // --------------------------------------------------------------------------------------
-let user = {
-    name: 'arjun',
-    age: 23
-}
 
-let person = Object.create(user, { name: { value: 'arjun' } })
-
-console.log(Reflect.ownKeys(person)) // it prints only own keys of obj
+console.log(Reflect.ownKeys(person)); // it prints only own keys of obj
 
 for (let key in person) // it prints all inherit key also
-    console.log(key)
+    console.log(key);
 
 // ------------------- obj inbuilt property related methods ----------------------------------------------------
 let obj = {
-    name: "arjun",
-    age: 30
-}
+    name: 'arjun',
+    age: 30,
+};
 Object.defineProperty(obj, 'name', {
-    value: 'aryan'
-})
+    value: 'aryan',
+});
 
 /* Object.defineProperties(obj, {
     name: { value: 'arjun', writable: true, enumerable: true, configurable: true },
     age: { value: 30, writable: true, enumerable: true, configurable: true }
 }) */
 
-
-let des = Object.getOwnPropertyDescriptor(obj, 'name')
+let des = Object.getOwnPropertyDescriptor(obj, 'name');
 
 // let des = Object.getOwnPropertyDescriptors(obj, Object.getOwnPropertyDescriptor(obj))
 console.log(des); //expected output
@@ -135,12 +128,12 @@ console.log(des); //expected output
 } */
 // ---------------------------- --------------------------------------------------------
 //  for new property , default are falsy
-let data = {}
+let data = {};
 Object.defineProperty(data, 'name', {
-    value: 'prakash'
-})
-let datadesc = Object.getOwnPropertyDescriptor(data, 'name')
-console.log(datadesc); // expected out put 
+    value: 'prakash',
+});
+let datadesc = Object.getOwnPropertyDescriptor(data, 'name');
+console.log(datadesc); // expected out put
 /* {
 value: 'prakash',
     writable: false,
@@ -149,21 +142,21 @@ value: 'prakash',
 } */
 // ----------------------------------------------------------------------
 let obj = {
-    name: "arjun",
-    age: 30
-}
+    name: 'arjun',
+    age: 30,
+};
 //  preventExtension forbid(don't allow) the new object properties
-Object.preventExtensions(obj)
-obj.id = 123
-console.log(obj);//{ name: 'arjun', age: 30 }
-console.log(Object.isExtensible(obj))//false
+Object.preventExtensions(obj);
+obj.id = 123;
+console.log(obj); //{ name: 'arjun', age: 30 }
+console.log(Object.isExtensible(obj)); //false
 
 // forbid adding/remove/writeable of properties that
 // Sets configurable: false, writable: false for all existing
-Object.freeze(obj)
-obj.id = 28
-obj.name = 'prakash'
-delete obj.age
+Object.freeze(obj);
+obj.id = 28;
+obj.name = 'prakash';
+delete obj.age;
 console.log(obj);
 
 console.log(Object.isFrozen(obj));
@@ -184,20 +177,20 @@ Returns true if adding / removing properties is forbidden, and all existing prop
 Returns true if adding / removing / changing properties is forbidden, and all current properties are configurable: false, writable: false. */
 
 // ------------------------------draw backs of objects , but Map will avoid those ------------------------------------
-let map = {}
+let map = {};
 
-let obj1 = {}
-let obj2 = {}
+let obj1 = {};
+let obj2 = {};
 
-map.obj1 = 'hello'
-console.log(map.obj1);// hello
-console.log(map.obj2);// undefined
+map.obj1 = 'hello';
+console.log(map.obj1); // hello
+console.log(map.obj2); // undefined
 console.log(obj1.toString(), obj2.toString());
 
-map[obj1] = 'hello'
+map[obj1] = 'hello';
 console.log(map[obj1]); // hello
-console.log(map[obj2]); // hello 
-console.log(map)// {'[Object-Object]': 'hello'}
+console.log(map[obj2]); // hello
+console.log(map); // {'[Object-Object]': 'hello'}
 console.log(obj1.toString(), obj2.toString());
 
 // because obj1 and obj2 string representation are same when we use []
