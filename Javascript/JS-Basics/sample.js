@@ -1,4 +1,5 @@
 const length = 4;
+
 const number = [];
 for (var i = 0; i < length; i++);
 
@@ -78,8 +79,9 @@ salary 1232
 When ... is at the end of function parameters, it’s “rest parameters” and gathers the rest of the list of arguments into an array.
 When ... occurs in a function call or alike, it’s called a “spread syntax” and expands an array into a list. */
 // arguments are array like objects . it a in built object . only for regular functions
-// arguments are old level spread operator 
+// arguments are old level spread operator
 // arrow function doesn't have arguments
+
 
 // --------------------------------Used objects, rest and spread , destructure ,---------------------------------------------
 let user = {
@@ -92,7 +94,6 @@ function myfilter({ input: [...user] }) {
 }
 
 const varia = myfilter(user)
-typeof varia
 varia
 // ----------------------------------------------------------------------------------------------------------------let user = {
 const user = {
@@ -211,7 +212,7 @@ function myfilter({ input: [...user] }) {
 
 const varia = myfilter(user)
 typeof varia
-varia
+
 // -------------------------------------------------------------------------------------------------
 //  used 3 array methods all together
 // ---------------------------------------------------------------------------
@@ -238,57 +239,53 @@ function groupById(users) {
 let usersById = groupById(users);
 console.log(usersById);
 
-// var foo = {
-//   a : 2,
-//   goo : function(){
-//     console.log(this.a);//2
-//   },
-//   poo: () => {
-//     let a = 8;
-//     console.log(this.a);//undefined
-//   }
-// }
+const inventory = [
+    { name: 'asparagus', type: 'vegetables', quantity: 5 },
+    { name: 'bananas', type: 'fruit', quantity: 0 },
+    { name: 'goat', type: 'meat', quantity: 23 },
+    { name: 'cherries', type: 'fruit', quantity: 5 },
+    { name: 'fish', type: 'meat', quantity: 22 },
+];
 
-// var a = 4;
-// var context = {
-//   a : 6
-// }
-// var another_goo = foo.goo;
+const group = (type) => {
+    return inventory.reduce((acc, curr) => {
+        if (acc[curr[type]]) {
+            acc[curr[type]].push(curr);
+        } else {
+            acc[curr[type]] = [curr];
+        }
+        return acc;
+    }, {});
+};
+console.log(group('type'));
+console.log(group('quantity'));
+var foo = {
+    a: 2,
+    goo: function () {
+        console.log('GO', this.a); //2
+    },
+    poo: () => {
+        let a = 8;
+        console.log('poo', this, this.a); //undefined
+    },
+};
+
+var a = 4;
+var context = {
+    a: 6,
+};
+// foo.goo.call(context);
+
+foo.poo.call(context);
+
+var another_goo = foo.goo;
 // another_goo();
 
-// var another_poo = foo.poo;
+var another_poo = foo.poo;
 // another_poo();
 
-// foo.poo();//2
 
 
 
 
 
-
-{
-    data: {
-        col1: {
-            name: ''
-            title 1: 'Tle'
-            title 2: "land"
-        }
-        col2: {
-            name: ''
-            title 1: 'Tle'
-            title 2: "land"
-        }
-        col3: {
-            name: ''
-            title 1: 'Tle',
-            title 2: "land"
-        }
-    },
-    isExist: '',
-        current: ''
-    previous: ''
-    exist: 'false'
-
-}
-
-typeof col === 'object'
