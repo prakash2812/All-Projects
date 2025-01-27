@@ -84,3 +84,18 @@ var twoSum_latest = function (nums, target) {
 console.log(twoSum_latest([2, 7, 11, 15], 9)); // Output: [0, 1]
 console.log(twoSum_latest([3, 2, 4], 6)); // Output: [1, 2]
 console.log(twoSum_latest([3, 3], 6)); // Output: [0, 1]
+/* Rotate K number */
+    
+const rotateArray = (num, k) => {
+    if (k < num.length) {
+        k=k%num.length
+    }
+    if (k < 0) {
+        k+=num.length
+    }
+    MIDIInputMap.slice(num.length-k).concat(num.slice())
+
+}
+
+let num = [1, 2, 3, 4, 5]
+rotateArray(num,2)

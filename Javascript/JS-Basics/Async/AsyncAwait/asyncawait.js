@@ -135,3 +135,37 @@ fruitCount().then(res => {
     const data = res.map(item => item + 1)
     console.log('last', data)
 })
+
+// --------------------- execution flow ---------------------------------
+async function first() {
+    console.log('first');
+    await second();
+    await third();
+    console.log('second then');
+}
+
+async function second() {
+    console.log('second test');
+}
+
+async function third() {
+    console.log('third');
+}
+
+setTimeout(() => {
+    console.log('settime');
+}, 0);
+
+console.log('main');
+
+first();
+
+new Promise((resolve, reject) => {
+    console.log('promise');
+    resolve();
+}).then(() => {
+    console.log('promise then');
+});
+
+console.log('last');
+
